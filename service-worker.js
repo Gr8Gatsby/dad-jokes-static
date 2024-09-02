@@ -4,7 +4,7 @@ const urlsToCache = [
   './index.html',
   './styles.css',
   './script.js',
-  './manifest.json',
+  './manifest.json'
 ];
 
 // Installation of Service Worker and Caching Resources
@@ -50,4 +50,7 @@ self.addEventListener('activate', event => {
         })
       );
     }).catch(error => {
-      console.error('Failed to delete old caches du
+      console.error('Failed to delete old caches during activate:', error);
+    })
+  );
+});
