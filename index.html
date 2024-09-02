@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad Joke App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Dad jokes</h1>
+            <nav>
+                <i id="favMenuIcon" class="fas fa-bars" aria-label="Favorites Menu"></i>
+                <div id="favoritesDropdown" class="dropdown-content">
+                    <h3>Favorites</h3>
+                    <ul id="favorites-list">
+                        <!-- Favorites will appear here -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="joke-section">
+            <div class="button-container">
+                <button id="prevBtn" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+                <button id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <article class="joke-display">
+                <header class="joke-header">
+                    <span id="favBtn" class="fav-icon">☆</span>
+                    <span id="shareBtn" class="share-icon" style="display: none;"><i class="material-icons">share</i></span>
+                </header>
+                <div class="joke-content">
+                    <h2 id="headline">Why don't oysters donate to charity?</h2>
+                    <p id="punchline" class="punchline">Because they are shellfish.</p>
+                </div>
+                <footer class="joke-footer">
+                    <div>
+                    <span id="infoIcon" class="info-icon">&#9432;</span>
+                    <div id="explanationContainer" class="explanation-container">
+                        <p id="explanation">The joke is a pun on the word 'selfish' and 'shellfish', referring to creatures like oysters.</p>
+                    </div>
+                </div>
+                </footer>
+                <div><span id="jokeNumber" class="joke-number">Joke 19 of 125</span></div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Served from a dadabase</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

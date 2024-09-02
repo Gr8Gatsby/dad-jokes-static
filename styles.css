@@ -1,0 +1,363 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Color Palette */
+:root {
+    --primary-color: #6a0dad; /* Dark Purple */
+    --secondary-color: #9b30ff; /* Medium Purple */
+    --accent-color: #b19cd9; /* Light Purple */
+    --background-color: #f3e5f5; /* Very Light Purple */
+    --text-color: #333; /* Dark Text */
+    --button-hover-color: #7b1fa2; /* Button Hover Color */
+    --highlight-color: #7f56c4; /* A more muted highlight for header */
+    --star-color: #FFD700; /* Gold color for the star */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    padding: 10px 0;
+    position: relative; /* To position the menu icon */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    text-align: left;
+    flex-grow: 1; /* Ensure the title takes up available space */
+}
+
+header nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+#favMenuIcon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px; /* Slight margin to avoid touching edges */
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    top: 100%; /* Position below the header */
+    background-color: white;
+    min-width: 300px; /* Increase width */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure it is on top of other content */
+    color: black;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.dropdown-content.visible {
+    display: block; /* Show when toggled */
+}
+
+.dropdown-content h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: left; /* Left justify the text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    max-width: 280px; /* Ensure the text does not exceed the container width */
+}
+
+.dropdown-content ul li:hover {
+    background-color: var(--background-color);
+}
+
+.dropdown-content ul li:last-child {
+    border-bottom: none;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+    text-align: center;
+    flex-grow: 1; /* Allow container to grow and fill available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.joke-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1; /* Allow joke section to grow and fill available space */
+}
+
+.joke-display {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    min-height: 300px; /* Increased min-height for consistency */
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden; /* Ensure the content doesn't overflow */
+    transition: max-height 0.3s ease-in-out; /* Smooth transition when expanding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space between elements */
+}
+
+.joke-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--highlight-color);
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+    color: white;
+    box-sizing: border-box;
+}
+
+.joke-number {
+    font-size: 18px;
+    font-weight:lighter;
+    font-family: Pacifico, cursive;
+}
+
+.joke-content {
+    flex-grow: 1; /* Allow joke content to grow and fill available space */
+}
+
+#headline {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 15px 15px 0 15px; /* Uniform margins */
+    color: var(--text-color);
+}
+
+.punchline {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 10px 15px 0 15px;
+    color: var(--text-color);
+}
+
+.joke-footer {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.info-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    margin-right: 10px; /* Add some space from the right edge */
+}
+
+.explanation-container {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.explanation-container.expanded {
+    display: block;
+}
+
+.joke-display.expanded {
+    max-height: 1000px; /* Increase max-height to allow the card to expand */
+    overflow: visible; /* Ensure the content is visible */
+    padding-bottom: 30px; /* Ensure there's enough space for the expanded text */
+}
+
+#favBtn {
+    font-size: 24px;
+    color: var(--star-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Button Styles */
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 10px;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+footer .container {
+    font-family: 'Pacifico', cursive;
+    padding: 20px 15px;
+}
+
+/* Ensure next and previous buttons have the same width */
+#nextBtn, #prevBtn {
+    width: 150px; /* Set a fixed width */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the text by default */
+    align-items: center; /* Center items vertically */
+}
+
+/* Style for the share icon */
+.share-icon {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-left: 10px; /* Add some space between the favorite and share icons */
+}
+
+.share-icon:hover {
+    color: var(--primary-color);
+}
+/* Media queries for mobile responsiveness */
+@media (max-width: 600px) {
+    header {
+        padding: 10px 0;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    #favMenuIcon {
+        font-size: 24px;
+        margin-left: 10px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .joke-display {
+        min-width: 100%; /* Ensure the card takes full width */
+        padding: 10px; /* Reduce padding to fit small screens */
+        min-height: 200px; /* Decrease min-height on smaller screens */
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .joke-header {
+        padding: 10px;
+        font-size: 16px; /* Adjust font-size for smaller screens */
+        display: flex;
+    justify-content: space-between; /* Space between joke number and icons */
+    align-items: center;
+    background-color: var(--highlight-color);
+    border-radius: 8px 8px 0 0;
+    color: white;
+    box-sizing: border-box;
+    }
+
+    .joke-icons {
+    display: flex; /* Flexbox to align icons side by side */
+    align-items: center; /* Center icons vertically */
+    gap: 10px; /* Space between favorite and share icons */
+}
+
+    .info-icon {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    #headline {
+        font-size: 2em;
+        margin: 10px 10px 0 10px; /* Adjust margins for smaller screens */
+    }
+
+    .punchline {
+        font-size: 16px;
+        margin: 10px 10px 0 10px;
+    }
+
+    footer .container {
+        padding: 15px 10px;
+        text-align: center;
+    }
+}
