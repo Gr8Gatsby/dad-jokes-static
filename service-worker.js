@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dad-jokes-cache-v3';
+const CACHE_NAME = 'dad-jokes-cache-v4';
 const urlsToCache = [
   './',
   './index.html',
