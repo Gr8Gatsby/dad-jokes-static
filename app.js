@@ -160,7 +160,7 @@ if (navigator.share) {
             text: 
             `${currentJoke.headline} 
 ${currentJoke.punchline}`,
-            url: window.location.href;
+            url: window.location.href
         }).catch((error) => console.error('Error sharing:', error));
     });
 }
