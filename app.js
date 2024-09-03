@@ -32,28 +32,6 @@ async function loadJokes() {
     }
 }
 
-// Function to get query parameters
-function getQueryParams() {
-    const params = {};
-    const queryString = window.location.search.substring(1);
-    const regex = /([^&=]+)=([^&]*)/g;
-    let match;
-    while (match = regex.exec(queryString)) {
-        params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
-    }
-    return params;
-}
-
-// Function to load a specific joke by index
-function loadJokeByIndex(index) {
-    if (index >= 0 && index < jokeCache.length) {
-        currentIndex = index;
-        renderJoke(jokeCache[currentIndex]);
-    } else {
-        console.error('Invalid joke index:', index);
-    }
-}
-
 // Load favorites from localStorage
 function loadFavorites() {
     const storedFavorites = localStorage.getItem('favorites');
@@ -171,6 +149,29 @@ prevBtn.addEventListener('click', () => {
     }
 });
 
+// Function to get query parameters
+function getQueryParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const regex = /([^&=]+)=([^&]*)/g;
+    let match;
+    while (match = regex.exec(queryString)) {
+        params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+    }
+    return params;
+}
+
+// Function to load a specific joke by index
+function loadJokeByIndex(index) {
+    if (index >= 0 && index < jokeCache.length) {
+        currentIndex = index;
+        displayJoke(jokeCache[currentIndex]);
+        updateButtons();
+    } else {
+        console.error('Invalid joke index:', index);
+    }
+}
+
 // Check if the Web Share API is supported
 if (navigator.share) {
     shareBtn.style.display = 'inline'; // Show the share button
@@ -180,9 +181,7 @@ if (navigator.share) {
         const shareUrl = `${window.location.origin}${window.location.pathname}?joke=${currentIndex}`;
         navigator.share({
             title: 'A funny dad joke for you!',
-            text: 
-            `${currentJoke.headline} 
-${currentJoke.punchline}`,
+            text: `${currentJoke.headline} \n${currentJoke.punchline}`,
             url: shareUrl
         }).catch((error) => console.error('Error sharing:', error));
     });
@@ -190,9 +189,12 @@ ${currentJoke.punchline}`,
 
 // Initial load
 loadJokes().then(() => {
+    console.log('Jokes loaded:', jokeCache);
     const queryParams = getQueryParams();
+    console.log('Query parameters:', queryParams);
     if (queryParams.joke) {
         const jokeIndex = parseInt(queryParams.joke, 10);
+        console.log('Joke index:', jokeIndex);
         if (!isNaN(jokeIndex)) {
             loadJokeByIndex(jokeIndex);
         }
