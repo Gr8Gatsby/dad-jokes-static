@@ -181,8 +181,7 @@ if (navigator.share) {
         const shareUrl = `${window.location.origin}${window.location.pathname}?joke=${currentIndex}`;
         navigator.share({
             title: 'A funny dad joke for you!',
-            text: `${currentJoke.headline} \n${currentJoke.punchline}`,
-            url: shareUrl
+            text: `${currentJoke.headline} \n${currentJoke.punchline} \n\n${shareUrl}`
         }).catch((error) => console.error('Error sharing:', error));
     });
 }

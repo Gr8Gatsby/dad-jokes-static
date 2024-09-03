@@ -17,5 +17,11 @@
             "sizes": "512x512",
             "type": "image/png"
         }
+    ],
+    "protocol_handlers": [
+      {
+        "protocol": "web+joke",
+        "url": "https://gr8gatsby.github.io/dad-jokes-static/?joke=%s"
+      }
     ]
 }
