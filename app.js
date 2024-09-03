@@ -187,6 +187,21 @@ if (navigator.share) {
     });
 }
 
+// Prevent touch events from causing scrolling
+document.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+}, { passive: false });
+
+// Prevent double-tap to zoom
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
 // Initial load
 loadJokes().then(() => {
     console.log('Jokes loaded:', jokeCache);

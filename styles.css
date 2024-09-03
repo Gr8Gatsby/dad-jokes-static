@@ -25,7 +25,7 @@ body {
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
     box-sizing: border-box;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow: hidden; /* Prevent horizontal scrolling */
 }
 
 header {
