@@ -159,7 +159,8 @@ if (navigator.share) {
             title: 'A Funny Joke',
             text: 
             `${currentJoke.headline} 
-${currentJoke.punchline}`
+${currentJoke.punchline}`,
+            url: window.location.href;
         }).catch((error) => console.error('Error sharing:', error));
     });
 }
